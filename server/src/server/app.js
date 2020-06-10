@@ -6,7 +6,7 @@ class AppController {
   constructor() {
     this.express = express();
     this.middlewares();
-    this.connetcion();
+    this.connection();
   }
 
   middlewares() {
@@ -15,7 +15,7 @@ class AppController {
     this.express.use(cors());
   }
 
-  connetcion() {
+  connection() {
     this.express.listen(process.env.PORT || 3000, (err, success) => {
       if (!err) console.log('you are connected');
       else console.log('error', err)
