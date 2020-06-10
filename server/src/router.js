@@ -1,4 +1,5 @@
-const app = require("./server/app")
+const app = require("./server/app");
+const LoginController = require("./controllers/login");
 const UserController = require("./controllers/user");
 
 app.get("/", (req, res, next) => {
@@ -6,3 +7,5 @@ app.get("/", (req, res, next) => {
 })
 
 app.post("/createUser", UserController.createUser);
+app.get("/login", LoginController.checkLogin);
+
