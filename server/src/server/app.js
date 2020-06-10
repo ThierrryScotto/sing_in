@@ -6,17 +6,18 @@ class AppController {
   constructor() {
     this.express = express();
     this.middlewares();
+    this.connetcion();
   }
 
   middlewares() {
     this.express.use(express.json())  ;
-    this.express.use(bodyParser());
+    this.express.use(bodyParser.json());
     this.express.use(cors());
   }
 
   connetcion() {
     this.express.listen(process.env.PORT || 3000, (err, success) => {
-      if (!err) console.log('connect');
+      if (!err) console.log('you are connected');
       else console.log('error', err)
     });
   }
