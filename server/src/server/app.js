@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors")
 const bodyParser = require("body-parser")
+const helmet = require('helmet')
 
 class AppController {
   constructor() {
@@ -10,8 +11,9 @@ class AppController {
   }
 
   middlewares() {
-    this.express.use(express.json())  ;
     this.express.use(bodyParser.json());
+    this.express.use(express.json()) ;
+    this.express.use(helmet());
     this.express.use(cors());
   }
 
