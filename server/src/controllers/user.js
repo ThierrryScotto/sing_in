@@ -2,7 +2,9 @@ const User = require("../models/user")
 
 module.exports = {
   async createUser(req, res) {
+    
     //chamar a função que vai decripitar as informarções 
+
     let { name, password, email } = req.body.user;
 
     await User.create({
