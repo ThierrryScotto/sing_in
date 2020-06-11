@@ -1,3 +1,5 @@
+var md5 = require('md5');
+
 module.exports = {
   verifyToken(res, req, next) {
     //verifica se as informações estão vindo do front end que eu quero
@@ -5,8 +7,8 @@ module.exports = {
   decrypt(res, req, next) {
     //verifica decript as informações encripitadass
   },
-  encrypt(res, req, next) {
-    //verifica encrypt as informações que eu quero
+  encrypt(text) {
+    return md5(text);
   },
 
 }
