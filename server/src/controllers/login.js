@@ -1,14 +1,14 @@
-const User = require("../models/user")
+const User = require("../models/user");
+const utils = require("../utils/utils");
 
 module.exports = {
   checkLogin(req, res) {
-
-  //check user and password
-
   let { password, email } = req.body.login;
 
+  let passwordEncrypt = utils.encrypt(password);
+
   User.findOne({
-    where: {email: email, password: password},
+    where: {email: email, password: passwordEncrypt},
   }).then(success => {
     if (success)
       res.send({ success: true})
