@@ -20,7 +20,7 @@
                 dark
                 flat
               >
-                <v-toolbar-title>Sign-up</v-toolbar-title>
+                <v-toolbar-title>Sign up</v-toolbar-title>
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>

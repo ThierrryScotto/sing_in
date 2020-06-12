@@ -30,7 +30,7 @@ export default {
   data: () => ({
     title: "Sing-in",
     menus: [
-    {name:"Signup", route:"Signup"},
+    {name:"Sign up", route:"Signup"},
     {name:"Login", route:"Login"},
     ]
   }),
