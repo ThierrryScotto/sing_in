@@ -1,9 +1,13 @@
 <template>
-  <h1> Welcome the my page </h1>
+  <div>
+    <h1> You are {{title}} </h1>
+  </div>
 </template>
 
 <script>
 export default {
-  
+  data: () => ({
+    title: "logged in"
+  })
 }
 </script>
