@@ -27,14 +27,14 @@
                 <v-form>
                   <v-text-field
                     label="Login"
-                    name="login"
+                    v-model="name"
                     prepend-icon="mdi-account"
                     type="text"
                   ></v-text-field>
 
                   <v-text-field
                     label="Email"
-                    name="email"
+                    v-model="email"
                     prepend-icon="mdi-email"
                     type="text"
                   ></v-text-field>
@@ -42,7 +42,7 @@
                   <v-text-field
                     id="password"
                     label="Password"
-                    name="password"
+                    v-model="password"
                     prepend-icon="mdi-lock"
                     type="password"
                   ></v-text-field>
@@ -50,7 +50,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn v-on:click="createUser" color="primary">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -62,4 +62,19 @@
 
 <script>
 
+import app from "../server/api"
+
+  export default {
+    data: () => ({
+      name: "",
+      email: "",
+      password: "",
+    }),
+
+    methods: {
+      createUser() {
+        app.regiterUser()
+      }
+    }
+  }
 </script>
