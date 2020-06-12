@@ -81,7 +81,7 @@ import storage from "../storage/storage"
                 window.isLoged = true;
                 alert("You are loged");
 
-                this,setStorage(login);
+                this.setStorage(login);
               } else {
                 alert(login.error)
               }
