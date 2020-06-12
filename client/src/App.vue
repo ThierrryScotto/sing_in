@@ -7,7 +7,7 @@
   >
     <v-toolbar dense>
       <v-toolbar-title>
-        <v-btn flat :to="{name: '#' }">
+        <v-btn flat :to="{name:'Home'}">
           {{title}}
         </v-btn>
       </v-toolbar-title>
