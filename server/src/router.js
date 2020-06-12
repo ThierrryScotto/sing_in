@@ -7,5 +7,5 @@ app.get("/", (req, res, next) => {
 })
 
 app.post("/createUser", UserController.createUser);
-app.get("/login", LoginController.checkLogin);
+app.post("/login", LoginController.checkLogin);
 

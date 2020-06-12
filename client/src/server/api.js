@@ -5,6 +5,6 @@ export default {
     return api.post('createUser', { user })
   },
   checkLogin(user) {
-    return api.get('login', { user })
+    return api.post('login', { user })
   }
 }

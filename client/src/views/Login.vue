@@ -27,15 +27,15 @@
                 <v-form>
                   <v-text-field
                     label="Login"
-                    name="login"
-                    prepend-icon="mdi-account"
+                    v-model="user.email"
+                    prepend-icon="mdi-email"
                     type="text"
                   ></v-text-field>
 
                   <v-text-field
                     id="password"
                     label="Password"
-                    name="password"
+                    v-model="user.password"
                     prepend-icon="mdi-lock"
                     type="password"
                   ></v-text-field>
@@ -43,7 +43,7 @@
               </v-card-text>
               <v-card-actions>
                 <v-spacer></v-spacer>
-                <v-btn color="primary">Login</v-btn>
+                <v-btn @click="login" color="primary">Login</v-btn>
               </v-card-actions>
             </v-card>
           </v-col>
@@ -54,9 +54,44 @@
 </template>
 
 <script>
+
+import api from "../server/api"
+
   export default {
-    props: {
-      source: String,
-    },
+    data: () => ({
+      user: {
+        email: "",
+        password: "",
+      }
+    }),
+
+    methods: {
+      login() {
+        if (!this.user.email)
+          return this.messageField("email")
+        else if (!this.user.password)
+          return this.messageField("password")
+        else {
+          api.checkLogin(this.user)
+            .then( response => {
+              let login = response.data;
+
+              if (login.success) {
+                window.isLoged = true;
+                alert("You are loged");
+              } else {
+                alert(login.error)
+              }
+            }).catch( err => {
+              alert("There was some error")
+              console.log(err)
+            })
+        }
+      },
+
+      messageField(field) {
+        alert(`O campo ${field} deve ser preenchido`);
+      }
+    }
   }
 </script>
