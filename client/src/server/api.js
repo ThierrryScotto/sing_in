@@ -1,19 +1,10 @@
 import {api} from "./config"
 
 export default {
-  getStudents:() => {
-    return api.get('students');
+  regiterUser(user) {
+    return api.post('createUser', { user })
   },
-  getOneStudent:(student) => {
-    return api.get(`student/${ student }`)
-  },
-  registerStudent(student) {
-    return api.post('register', { student })
-  },
-  editStudentRegister(student) {
-    return api.put('edit', { student })
-  },
-  deleteStudent(id) {
-    return api.delete(`delete/${id}`);
+  checkLogin(user) {
+    return api.get('login', { user })
   }
 }
