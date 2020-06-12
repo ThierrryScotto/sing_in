@@ -78,9 +78,15 @@ import app from "../server/api"
         if (this.checkFields()) {
           app.regiterUser(this.user)
           .then(success => {
-            if (success.data) 
+            if (success.data) {
               alert("Usuário criado com sucesso");
               this.cleanFields();
+            } else {
+              alert(success.error)
+            }
+          }).catch( err => {
+            alert("Erro ao registrar usuário")
+            console.log("erro", err)
           })
         }
       },
