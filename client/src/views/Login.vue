@@ -1,5 +1,5 @@
 <template>
-  <h1> Welcome the my page </h1>
+  <h1>Login</h1>
 </template>
 
 <script>

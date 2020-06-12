@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Home from '../views/Home.vue'
-import Register from "../views/Register"
-import Edit from "../views/Edit"
+import Signup from "../views/Signup"
+import Login from "../views/Login"
 
 Vue.use(VueRouter)
 
@@ -14,14 +14,14 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/register',
-    name: 'Register',
-    component: Register
+    path: '/signup',
+    name: 'Signup',
+    component: Signup
   },
   {
-    path: '/edit/:id',
-    name: 'Edit',
-    component: Edit
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
 ]
 

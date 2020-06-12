@@ -6,10 +6,8 @@
     tile
   >
     <v-toolbar dense>
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
       <v-toolbar-title>
-        <v-btn flat :to="{name: 'Home' }">
+        <v-btn flat :to="{name: '#' }">
           {{title}}
         </v-btn>
       </v-toolbar-title>
@@ -20,8 +18,8 @@
          {{menu.name}}
         </v-btn>
       </v-toolbar-items>
-
     </v-toolbar>
+  <router-view></router-view>
   </v-card>
 </template>
 
@@ -32,8 +30,7 @@ export default {
   data: () => ({
     title: "Sing-in",
     menus: [
-    {name:"Home", route:"Home"},
-    {name:"Singup", route:"Singup"},
+    {name:"Signup", route:"Signup"},
     {name:"Login", route:"Login"},
     ]
   }),
