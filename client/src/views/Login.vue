@@ -56,6 +56,7 @@
 <script>
 
 import api from "../server/api"
+import storage from "../storage/storage"
 
   export default {
     data: () => ({
@@ -79,6 +80,8 @@ import api from "../server/api"
               if (login.success) {
                 window.isLoged = true;
                 alert("You are loged");
+
+                this,setStorage(login);
               } else {
                 alert(login.error)
               }
@@ -91,6 +94,10 @@ import api from "../server/api"
 
       messageField(field) {
         alert(`O campo ${field} deve ser preenchido`);
+      },
+
+      setStorage(login) {
+        storage.setUser(login);
       }
     }
   }
