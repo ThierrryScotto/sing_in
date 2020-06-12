@@ -24,17 +24,17 @@
                 <v-spacer></v-spacer>
               </v-toolbar>
               <v-card-text>
-                <v-form>
+                <v-form ref="form"> 
                   <v-text-field
                     label="Login"
-                    v-model="name"
+                    v-model="user.name"
                     prepend-icon="mdi-account"
                     type="text"
                   ></v-text-field>
 
                   <v-text-field
                     label="Email"
-                    v-model="email"
+                    v-model="user.email"
                     prepend-icon="mdi-email"
                     type="text"
                   ></v-text-field>
@@ -42,7 +42,7 @@
                   <v-text-field
                     id="password"
                     label="Password"
-                    v-model="password"
+                    v-model="user.password"
                     prepend-icon="mdi-lock"
                     type="password"
                   ></v-text-field>
@@ -66,14 +66,42 @@ import app from "../server/api"
 
   export default {
     data: () => ({
-      name: "",
-      email: "",
-      password: "",
+      user: {
+        name: "",
+        email: "",
+        password: "",
+      }
     }),
 
     methods: {
       createUser() {
-        app.regiterUser()
+        if (this.checkFields()) {
+          app.regiterUser(this.user)
+          .then(success => {
+            if (success.data) 
+              alert("Usuário criado com sucesso");
+              this.cleanFields();
+          })
+        }
+      },
+
+      checkFields() {
+        if (!this.user.name) {
+          alert("O campo nome não pode estar vázio")
+          return false;
+        } else if (!this.user.email) {
+          alert("O campo email não pode estar vázio");
+          return false;
+        } else if (!this.user.password) {
+          alert("O campo password não pode estar vázio")
+          return false;
+        }
+
+        return true;
+      },
+
+      cleanFields() {
+        this.$refs.form.reset();
       }
     }
   }
