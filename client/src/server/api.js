@@ -1,7 +1,7 @@
 import {api} from "./config"
 
 export default {
-  regiterUser(user) {
+  regiterUser(user) { 
     return api.post('createUser', { user })
   },
   checkLogin(user) {
